@@ -10,15 +10,13 @@ const instance = axios.create({
   timeout: API_TIMEOUT,
 })
 
-const handleError = (error) => {
+const handleError = error => {
   const notification = {
     type: 'ERROR',
     message: 'Something went wrong'
   }
 
-  if(error.message) {
-    notification.message = error.message
-  }
+  if(error.message) notification.message = error.message
 
   apiStore.setNotification({ notification })
 
