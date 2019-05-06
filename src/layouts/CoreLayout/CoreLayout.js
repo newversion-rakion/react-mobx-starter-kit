@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Navbar from '../../components/Navbar'
+import Navbar from 'components/Navbar'
 import classes from './CoreLayout.module.scss'
 
 class CoreLayout extends Component {

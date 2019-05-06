@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Router } from 'react-router-dom'
-import history, { navigateTo } from './utils/routing'
+import history, { navigateTo } from 'utils/routing'
 
-import Routes from './routes'
-import CoreLayout from './layouts/CoreLayout'
+import Routes from 'routes'
+import CoreLayout from 'layouts/CoreLayout'
 import './App.css'
 
 export default class App extends Component {
