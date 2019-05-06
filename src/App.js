@@ -3,6 +3,7 @@ import { Router } from 'react-router-dom'
 import history, { navigateTo } from './utils/routing'
 
 import Routes from './routes'
+import CoreLayout from './layouts/CoreLayout'
 import './App.css'
 
 export default class App extends Component {
@@ -21,7 +22,9 @@ export default class App extends Component {
     if (somethingWentWrong) navigateTo('/something-went-wrong')
     return (
       <Router history={history}>
-        <Routes />
+        <CoreLayout>
+          <Routes />
+        </CoreLayout>
       </Router>
     )
   }
