@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-import apiStore from 'store/ApiStore'
 import { navigateTo } from './routing'
 import * as storage from './storage'
 import { SERVER_URL, API_TIMEOUT } from './constants'
+import apiStore from 'store/ApiStore'
 
 const instance = axios.create({
   baseURL: SERVER_URL,

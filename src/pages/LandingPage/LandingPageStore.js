@@ -1,7 +1,7 @@
-import { observerble } from 'mobx'
+import { observable } from 'mobx'
 
 class LandingPageStore {
-  @observerble todo = {}
+  @observable number = 1
 }
 
-export default LandingPageStore()
+export default new LandingPageStore()

@@ -1,5 +1,17 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { observer } from 'mobx-react'
 
-const LandingPage = () => <div className='container'>Landing page</div>
+import LandingPageStore from './LandingPageStore'
+@observer
+class LandingPage extends Component {
+  return() {
+    console.log(LandingPageStore.number)
+    return(
+      <div>
+        <div className='container'>Landing page</div>
+      </div>
+    )
+  }
+}
 
 export default LandingPage
