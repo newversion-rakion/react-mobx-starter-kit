@@ -4,11 +4,10 @@ import { observer } from 'mobx-react'
 import LandingPageStore from './LandingPageStore'
 @observer
 class LandingPage extends Component {
-  return() {
-    console.log(LandingPageStore.number)
+  render() {
     return(
       <div>
-        <div className='container'>Landing page</div>
+        <div className='container'>{LandingPageStore.number}</div>
       </div>
     )
   }
