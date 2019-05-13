@@ -3,7 +3,7 @@ import axios from 'axios'
 import { navigateTo } from './routing'
 import * as storage from './storage'
 import { SERVER_URL, API_TIMEOUT } from './constants'
-import apiStore from 'store/ApiStore'
+import apiStore from 'stores/ApiStore'
 
 const instance = axios.create({
   baseURL: SERVER_URL,
@@ -38,22 +38,11 @@ const sendRequest = ({ url, method, params, data, loading = false }) => {
     data,
     headers: {
       'Content-Type': 'application/json',
-      'Authorzation': storage.getToken() || ''
-    }
+      'Authorization': storage.getToken() || ''
+    },
   }).then((response) => {
     if (loading) apiStore.setLoading({ loading: false })
-
     return response.data
-  }).then((data) => {
-    if (data.code === 0) {
-      const error = {
-        errorMessage: data.message || (data.data && data.data.errorMessage)
-      }
-
-      throw error
-    } else {
-      return data.data
-    }
   }).catch((error) => {
     if (loading && error.errorMessage) apiStore.setLoading({ loading: false })
 
@@ -61,18 +50,18 @@ const sendRequest = ({ url, method, params, data, loading = false }) => {
   })
 }
 
-export const get = ({ url, params, loading }) => {
+export const get = ({ url, params, loading }) => (
   sendRequest({ url, params, method: 'GET', loading })
-}
+)
 
-export const post = ({ url, params, data, loading }) => {
+export const post = ({ url, params, data, loading }) => (
   sendRequest({ url, params, data, method: 'POST', loading })
-}
+)
 
-export const put = ({ url, params, data, loading }) => {
+export const put = ({ url, params, data, loading }) => (
   sendRequest({ url, params, data, method: 'PUT', loading })
-}
+)
 
-export const deleteData = ({ url, params, data, loading }) => {
+export const deleteData = ({ url, params, data, loading }) => (
   sendRequest({ url, params, data, method: 'DELETE', loading })
-}
+)

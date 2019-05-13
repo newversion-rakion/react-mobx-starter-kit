@@ -1,9 +1,19 @@
-export const setItem = (key, value) => sessionStorage.setItem(key, JSON.stringify(value))
+export const setItem = (key, value) => {
+  sessionStorage.setItem(key, JSON.stringify(value))
+}
 
-export const getItem = (key) => JSON.parse(sessionStorage.getItem(key))
+export const getItem = (key) => {
+  return JSON.parse(sessionStorage.getItem(key))
+}
 
-export const setToken = async (token) => sessionStorage.setItem('accessToken', token)
+export const setToken = async (token) => {
+  sessionStorage.setItem('accessToken', token)
+}
 
-export const getToken = () => sessionStorage.getItem('accessToken')
+export const getToken = () => {
+  return sessionStorage.getItem('accessToken')
+}
 
-export const clearAllItems = () => sessionStorage.clear()
+export const clearAllItems = () => {
+  sessionStorage.clear()
+}

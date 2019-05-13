@@ -1,0 +1,19 @@
+.user {
+  margin: 30px 0;
+  cursor: pointer;
+}
+
+.userThumb {
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.userInfo {
+  padding: 0 0 0 15px;
+  overflow: hidden;
+}
