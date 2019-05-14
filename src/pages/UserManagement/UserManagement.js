@@ -8,20 +8,12 @@ import UserManagementStore from './UserManagementStore'
 
 @observer
 class UserManagement extends Component {
-  state = {
-    params: {
-      page: 1,
-      per_page: 4
-    }
-  }
   componentDidMount() {
-    UserManagementStore.getUserList(this.state.params)
+    UserManagementStore.getUserList()
   }
 
   deleteSingleUser = (id) => {
-    UserManagementStore.deleteSingleUser(id, () => {
-      UserManagementStore.getUserList(this.state.params)
-    })
+    UserManagementStore.deleteSingleUser(id)
   }
   render() {
     const { userList, totalUsers, totalPages } = UserManagementStore

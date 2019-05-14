@@ -1,26 +1,28 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import classNames from 'classnames'
+import { Button } from 'reactstrap'
 
-import classes from './UserInfo.module.scss'
+import UserEdit from './components/UserEdit'
+import classes from './UserHomePage.module.scss'
 
-import UserInfoStore from './UserInfoStore'
+import UserHomePageStore from './UserHomePageStore'
 
 @observer
 class UserInfo extends Component {
   constructor(props) {
     super(props)
-    this.UserInfoStore = new UserInfoStore()
+    this.UserHomePageStore = new UserHomePageStore()
   }
 
   componentDidMount() {
-    this.UserInfoStore.getUserInfo(this.props.match.params.id)
+    this.UserHomePageStore.getUserInfo(this.props.match.params.id)
   }
   render() {
-    const { userInfo } = this.UserInfoStore
+    const { userInfo, editUserInfo } = this.UserHomePageStore
 
     return(
-      <div className={classes.userInfoPage}>
+      <div className={classes.userHomePage}>
         <div className='container'>
           <div className={classNames(classes.user, 'clearfix')}>
             <div className={classNames(classes.userThumb, 'float-left')}>
@@ -29,8 +31,15 @@ class UserInfo extends Component {
             <div className={classes.userInfo}>
               <h5>{userInfo.first_name} {userInfo.last_name}</h5>
               <div>{userInfo.email}</div>
+              <Button className={classes.editUserBtn} outline color='info' size='sm'>
+                Edit
+              </Button>
             </div>
           </div>
+          <UserEdit
+            userInfo={userInfo}
+            editUserInfo={editUserInfo}
+          />
         </div>
       </div>
     )

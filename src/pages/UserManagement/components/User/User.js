@@ -30,8 +30,6 @@ const User = ({ userInfo, deleteSingleUser }) => {
             Handle
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem>Edit user</DropdownItem>
-            <DropdownItem divider />
             <DropdownItem
               onClick={() => deleteSingleUser(userInfo.id)}
             >

@@ -1,5 +1,5 @@
 import React from 'react'
-import User from './User'
+import User from '../User'
 import classes from './UserList.module.scss'
 
 const UserList = ({ userList, totalUsers, totalPages, deleteSingleUser }) =>

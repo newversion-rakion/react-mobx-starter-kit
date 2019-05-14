@@ -1,4 +1,5 @@
 import { observable } from 'mobx'
+import { navigateTo } from 'utils/routing'
 import * as Api from 'utils/api'
 
 export default class UserInfo {
@@ -12,6 +13,21 @@ export default class UserInfo {
         loading: true,
       })
       this.userInfo = result.data
+    } catch(e) {
+      console.log(e)
+    }
+  }
+
+  editUserInfo = async (id, values) => {
+    try {
+      await Api.put({
+        url: `users/${id}`,
+        params: {},
+        data: values,
+        loading: true,
+      })
+  
+      navigateTo('/user-management')
     } catch(e) {
       console.log(e)
     }

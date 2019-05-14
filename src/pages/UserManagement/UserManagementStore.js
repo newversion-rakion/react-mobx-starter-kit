@@ -2,15 +2,19 @@ import { observable } from 'mobx'
 import * as Api  from 'utils/api'
 
 class UserManagementStore {
+  @observable params = {
+    page: 1,
+    per_page: 4
+  }
   @observable totalUsers = 0
   @observable totalPages = 0
   @observable userList = []
 
-  getUserList = async (params) => {
+  getUserList = async () => {
     try {
       const result = await Api.get({
         url: '/users',
-        params,
+        params: this.params,
         loading: true,
       })
       this.userList = result.data
@@ -21,13 +25,13 @@ class UserManagementStore {
     }
   }
 
-  deleteSingleUser = async (id, cb) => {
+  deleteSingleUser = async (id) => {
     try {
       await Api.deleteData({
         url: `users/${id}`,
         loading: true,
       })
-      cb()
+      this.getUserList()
     } catch {
 
     }
