@@ -10,12 +10,18 @@ import UserManagementStore from './UserManagementStore'
 class UserManagement extends Component {
   state = {
     params: {
-        page: 1,
-        per_page: 4
+      page: 1,
+      per_page: 4
     }
   }
   componentDidMount() {
     UserManagementStore.getUserList(this.state.params)
+  }
+
+  deleteSingleUser = (id) => {
+    UserManagementStore.deleteSingleUser(id, () => {
+      UserManagementStore.getUserList(this.state.params)
+    })
   }
   render() {
     const { userList, totalUsers, totalPages } = UserManagementStore
@@ -26,6 +32,7 @@ class UserManagement extends Component {
             userList={userList}
             totalUsers={totalUsers}
             totalPages={totalPages}
+            deleteSingleUser={this.deleteSingleUser}
           />
         </div>
       </div>

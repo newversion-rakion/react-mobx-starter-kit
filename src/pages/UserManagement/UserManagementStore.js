@@ -20,6 +20,18 @@ class UserManagementStore {
       console.log(e)
     }
   }
+
+  deleteSingleUser = async (id, cb) => {
+    try {
+      await Api.deleteData({
+        url: `users/${id}`,
+        loading: true,
+      })
+      cb()
+    } catch {
+
+    }
+  }
 }
 
 export default new UserManagementStore()

@@ -1,23 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap'
+import { Link } from 'react-router-dom'
 
-import { navigateTo } from 'utils/routing'
 import classes from './User.module.scss'
 
-const User = ({ userInfo }) =>
-  <div
-    className={classNames(classes.user, 'clearfix')}
-    onClick={() => {
-      navigateTo(`user-management/${userInfo.id}`)
-    }}
-  >
-    <div className={classNames(classes.userThumb, 'float-left')}>
-      <img alt='avt' src={userInfo.avatar} />
-    </div>
-    <div className={classes.userInfo}>
-      <h5>{userInfo.first_name} {userInfo.last_name}</h5>
-      <div>{userInfo.email}</div>
-    </div>
-  </div>
+const User = (userInfo, deleteSingleUser) => {
+
+  const [dropdownOpen, setToggle] = useState(false)
+
+  const toggle = () => {
+    setToggle(!dropdownOpen)
+  }
+
+  return(
+    <tr>
+      <th scope='row'>
+        <Link className='nav-link' to={`user-management/${userInfo.id}`}>
+          {userInfo.id}
+        </Link>
+      </th>
+      <td>
+        <div className={classNames(classes.userThumb, 'float-left')}>
+          <img alt='avt' src={userInfo.avatar} />
+        </div>
+      </td>
+      <td>{userInfo.first_name}</td>
+      <td>{userInfo.last_name}</td>
+      <td>{userInfo.email}</td>
+      <td>
+        <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+          <DropdownToggle caret size="sm">
+            Handle
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem>Edit user</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem
+              onClick={() => deleteSingleUser(userInfo.id)}
+            >
+              Delete user
+            </DropdownItem>
+          </DropdownMenu>
+        </ButtonDropdown>
+      </td>
+    </tr>
+  )
+}
 
 export default User
