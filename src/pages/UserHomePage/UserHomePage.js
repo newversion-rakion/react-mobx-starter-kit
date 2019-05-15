@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import classNames from 'classnames'
 import { Button } from 'reactstrap'
 
-import UserEdit from './components/UserEdit'
+import { navigateTo } from 'utils/routing'
 import classes from './UserHomePage.module.scss'
 
 import UserHomePageStore from './UserHomePageStore'
@@ -19,7 +19,7 @@ class UserInfo extends Component {
     this.UserHomePageStore.getUserInfo(this.props.match.params.id)
   }
   render() {
-    const { userInfo, editUserInfo } = this.UserHomePageStore
+    const { userInfo } = this.UserHomePageStore
 
     return(
       <div className={classes.userHomePage}>
@@ -31,15 +31,14 @@ class UserInfo extends Component {
             <div className={classes.userInfo}>
               <h5>{userInfo.first_name} {userInfo.last_name}</h5>
               <div>{userInfo.email}</div>
-              <Button className={classes.editUserBtn} outline color='info' size='sm'>
+              <Button
+                onClick={() => navigateTo(`/user-management/${this.props.match.params.id}/edit`)}
+                className={classes.editUserBtn} outline color='info' size='sm'
+              >
                 Edit
               </Button>
             </div>
           </div>
-          <UserEdit
-            userInfo={userInfo}
-            editUserInfo={editUserInfo}
-          />
         </div>
       </div>
     )

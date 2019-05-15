@@ -6,6 +6,7 @@ const LandingPage  = lazy(() => import('pages/LandingPage'))
 const Login  = lazy(() => import('pages/Login'))
 const UserManagement  = lazy(() => import('pages/UserManagement'))
 const UserHomePage = lazy(() => import('pages/UserHomePage'))
+const UserEdit = lazy(() => import('pages/UserEdit'))
 const PageNotFound = lazy(() => import('pages/PageNotFound'))
 const SomethingWentWrong = lazy(() => import('pages/SomethingWentWrong'))
 
@@ -15,6 +16,7 @@ const Routes = () => (
       <Route path={`${BASENAME}/login`} component={Login} exact />
       <Route path={`${BASENAME}/user-management`} component={UserManagement} exact />
       <Route path={`${BASENAME}/user-management/:id`} component={UserHomePage} exact />
+      <Route path={`${BASENAME}/user-management/:id/edit`} component={UserEdit} exact />
       <Route path={`${BASENAME}/something-went-wrong`} component={SomethingWentWrong} exact />
       <Route path={`${BASENAME}/page-not-found`} component={PageNotFound} exact />
       <Route component={LandingPage} />

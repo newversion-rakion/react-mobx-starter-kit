@@ -41,10 +41,14 @@ const sendRequest = ({ url, method, params, data, loading = false }) => {
       'Authorization': storage.getToken() || ''
     },
   }).then((response) => {
-    if (loading) apiStore.setLoading({ loading: false })
+    if (loading) {
+      apiStore.setLoading({ loading: false })
+    }
     return response.data
   }).catch((error) => {
-    if (loading && error.errorMessage) apiStore.setLoading({ loading: false })
+    if (loading && error.errorMessage) {
+      apiStore.setLoading({ loading: false })
+    }
 
     return handleError(error)
   })
