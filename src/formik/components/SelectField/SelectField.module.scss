@@ -1,0 +1,19 @@
+.hasError {
+  >div {
+    border: 1px solid red;
+  }
+}
+
+.selectFieldWrap {
+  position: relative;
+}
+
+.removeValueBtn {
+  border: 0;
+  background: none;
+  position: absolute;
+  right: 40px;
+  top: 4px;
+  z-index: 2;
+  color: hsl(0,0%,60%);
+}

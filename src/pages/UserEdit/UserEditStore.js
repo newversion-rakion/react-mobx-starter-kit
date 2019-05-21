@@ -12,6 +12,7 @@ class UserEditStore {
         params: {},
         loading: true,
       })
+
       this.userInfo = result.data
     } catch(e) {
       console.log(e)

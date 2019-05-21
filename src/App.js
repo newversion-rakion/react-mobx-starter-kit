@@ -4,7 +4,7 @@ import history, { navigateTo } from 'utils/routing'
 
 import Routes from 'routes'
 import CoreLayout from 'layouts/CoreLayout'
-import './App.css'
+import './App.module.scss'
 
 export default class App extends Component {
   state = {
@@ -12,9 +12,9 @@ export default class App extends Component {
   }
 
   componentDidCatch(error, info) {
-    this.setState({
-      somethingWentWrong: true,
-    })
+    // this.setState({
+    //   somethingWentWrong: true,
+    // })
   }
   render() {
     const { somethingWentWrong } = this.state

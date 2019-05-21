@@ -3,9 +3,16 @@ import { observer } from 'mobx-react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 
 import { UserEditForm as validate } from 'formik/validators'
+import { InputTextField, SelectField, ErrorField } from 'formik/components'
 import classes from './UserEdit.module.scss'
 
 import EditUserStore from './UserEditStore'
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
 
 @observer
 class UserEdit extends Component {
@@ -29,40 +36,57 @@ class UserEdit extends Component {
                 initialValues={userInfo}
                 validate={validate}
                 onSubmit={(values, { setSubmitting  }) => {
-                  editUserInfo(userInfo.id, values)
                   setSubmitting(false)
+                  editUserInfo(userInfo.id, values)
                 }}
               >
-                {({ values, isSubmitting }) => (
+                {({ ...props }) => (
                   <Form>
                     <div className='form-group'>
-                      <label htmlFor='exampleInputEmail1'>First name</label>
-                      <Field className='form-control' type='text' name='first_name' />
-                      <ErrorMessage name='first_name'>
-                        {errorMessage => <div className='error'>{errorMessage}</div>}
-                      </ErrorMessage>
+                      <Field
+                        className='form-control'
+                        label='First_name'
+                        component={InputTextField}
+                        type='text'
+                        name='first_name' />
+                      <ErrorMessage name='first_name' component={ErrorField} />
                     </div>
 
                     <div className='form-group'>
-                      <label htmlFor='exampleInputEmail1'>Last name</label>
-                      <Field className='form-control' type='text' name='last_name' />
-                      <ErrorMessage name='last_name'>
-                        {errorMessage => <div className='error'>{errorMessage}</div>}
-                      </ErrorMessage>
+                      <Field
+                        className='form-control'
+                        label='Last_name'
+                        component={InputTextField}
+                        type='text'
+                        name='last_name' />
+                      <ErrorMessage name='last_name' component={ErrorField} />
                     </div>
 
                     <div className='form-group'>
-                      <label htmlFor='exampleInputEmail1'>Email</label>
-                      <Field className='form-control' type='email' name='email' />
-                      <ErrorMessage name='email'>
-                        {errorMessage => <div className='error'>{errorMessage}</div>}
-                      </ErrorMessage>
+                      <Field
+                        label='Test select'
+                        placeholder='Select one...'
+                        options={options}
+                        component={SelectField}
+                        type='text'
+                        name='foods' />
+                      <ErrorMessage name='foods' component={ErrorField} />
+                    </div>
+
+                    <div className='form-group'>
+                      <Field
+                        className='form-control'
+                        label='Email'
+                        component={InputTextField}
+                        type='text'
+                        name='email' />
+                      <ErrorMessage name='email' component={ErrorField} />
                     </div>
 
                     <button
                       type='submit'
                       className='btn btn-primary'
-                      disabled={isSubmitting}
+                      disabled={props.isSubmitting || !props.dirty}
                     >
                       Submit
                     </button>
