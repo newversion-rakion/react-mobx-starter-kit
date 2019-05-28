@@ -13,9 +13,10 @@ class UserEditStore {
         loading: true,
       })
 
-      this.userInfo = result.data
+      const payload = result.data
+      payload.checkboxGroup = []
+      this.userInfo = payload
     } catch(e) {
-      console.log(e)
     }
   }
 
@@ -30,7 +31,6 @@ class UserEditStore {
 
       navigateTo('/user-management')
     } catch(e) {
-      console.log(e)
     }
   }
 }

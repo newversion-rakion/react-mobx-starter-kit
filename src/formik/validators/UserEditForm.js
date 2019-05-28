@@ -1,5 +1,4 @@
 const UserEditForm = values => {
-  console.log(values)
   let errors = {}
 
   if (!values.first_name) {
@@ -15,7 +14,6 @@ const UserEditForm = values => {
   }
 
   if (!values.foods) {
-    console.log('error is coming')
     errors.foods = 'Food cannot be blank';
   }
 

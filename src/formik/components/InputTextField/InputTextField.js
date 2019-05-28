@@ -6,25 +6,25 @@ import classes from './InputTextField.module.scss'
 const InputTextField = ({
   field,
   form: { touched, errors },
+  className,
+  label,
   ...props
-}) => {
-  const { className, label, ...rest } = props
-  return (
-    <div className={classes.inputTextField}>
-      {label &&
-        <label>{label}</label>
+}) => (
+  <div className={classes.inputTextField}>
+    {label &&
+      <label>{label}</label>
+    }
+    <input
+      className={
+        classNames(
+          className,
+          touched[field.name] && errors[field.name] ? classes.hasError : ''
+        )
       }
-      <input
-        className={
-          classNames(
-            className,
-            touched[field.name] && errors[field.name] ? classes.hasError : ''
-          )
-        }
-        {...field} {...rest}
-      />
-    </div>
-  )
-}
+      {...field}
+      {...props}
+    />
+  </div>
+)
 
 export default InputTextField

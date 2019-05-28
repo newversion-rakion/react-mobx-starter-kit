@@ -1,68 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Select from 'react-select'
 
 import classes from './SelectField.module.scss'
 
-class SelectField extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      valueObj: {
-        label: '',
-        value: undefined,
-      }
+const SelectField = ({
+  form: {
+    setFieldValue,
+    setFieldTouched,
+    errors,
+    touched,
+  },
+  field,
+  label,
+  options,
+  ...props
+}) => (
+  <div>
+    {label &&
+      <label>{label}</label>
     }
-  }
-
-  handleChange = valueObj => {
-    const { form, field } = this.props
-    form.setFieldValue(field.name, valueObj.value)
-
-    this.setState({
-      valueObj,
-    })
-  }
-
-  handleClearValue = () => {
-    const { form, field } = this.props
-    form.setFieldValue(field.name, undefined)
-
-    this.setState({
-      valueObj: {
-        label: '',
-        value: undefined,
-      }
-    })
-  }
-  render() {
-    const { valueObj } = this.state
-
-    const { label, options, form, ...props } = this.props
-
-    return(
-      <div>
-        {label &&
-          <label>{label}</label>
-        }
-        <div className={classes.selectFieldWrap}>
-          <button
-            type="button"
-            onClick={this.handleClearValue}
-            className={classes.removeValueBtn}
-          >
-            x
-          </button>
-          <Select
-            value={valueObj}
-            onChange={this.handleChange}
-            options={options}
-            {...props}
-          />
-        </div>
-      </div>
-    )
-  }
-}
+    <div className={classes.selectFieldWrap}>
+      <button
+        type="button"
+        onClick={() => setFieldValue(field.name, '')}
+        className={classes.removeValueBtn}
+      >
+        x
+      </button>
+      <Select
+        value={(options && field.value) ? options.find(option => option.value === field.value) : ''}
+        onChange={(selectedOption) => setFieldValue(field.name, selectedOption.value)}
+        options={options}
+        onBlur={() => setFieldTouched(field.name)}
+        className={errors[field.name] && touched[field.name] ? classes.hasError : ''}
+        {...props}
+      />
+    </div>
+  </div>
+)
 
 export default SelectField

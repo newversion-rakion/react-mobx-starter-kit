@@ -13,7 +13,6 @@ export default class UserInfo {
       })
       this.userInfo = result.data
     } catch(e) {
-      console.log(e)
     }
   }
 }

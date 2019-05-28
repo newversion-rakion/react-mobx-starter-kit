@@ -21,7 +21,6 @@ class UserManagementStore {
       this.totalUsers = result.total
       this.totalPages = result.total_pages
     } catch(e) {
-      console.log(e)
     }
   }
 
