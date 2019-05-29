@@ -14,7 +14,7 @@ class UserEditStore {
       })
 
       const payload = result.data
-      payload.checkboxGroup = []
+      payload.checkboxGroup = ['1', '2']
       this.userInfo = payload
     } catch(e) {
     }

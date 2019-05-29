@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import { FormattedMessage } from "react-intl"
 
 import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { UserEditForm as validate } from 'formik/validators'
+import { UserEditForm as validate } from 'form/validators'
 import {
-  InputTextField, SelectField,
-  RadioField, RadioFieldGroup,
+  InputTextField,
+  SelectField,
+  RadioField,
   CheckboxField,
   ErrorField
-} from 'formik/components'
+} from 'form/components'
 import classes from './UserEdit.module.scss'
 
 import EditUserStore from './UserEditStore'
@@ -46,7 +48,7 @@ class UserEdit extends Component {
                 }}
               >
                 {({ ...props }) => {
-                  console.log(props.values)
+                  console.log(props)
                   return(
                     <Form>
                       <div className='form-group'>
@@ -80,27 +82,26 @@ class UserEdit extends Component {
                         <ErrorMessage name='foods' component={ErrorField} />
                       </div>
 
+                      <div className="form-group">
+                        <CheckboxField name="checkboxGroup" value="1" label="hihi" />
+                        <CheckboxField name="checkboxGroup" value="2" label="ahihi" />
+                        <CheckboxField name="checkboxGroup" value="3" label="ưhihi"/>
+                        <ErrorMessage name='checkboxGroup' component={ErrorField} />
+                      </div>
+
                       <div className='form-group'>
-                        <RadioFieldGroup
-                          id="radioGroup"
-                          label="One of these please"
-                          value={props.values.radioGroup}
-                          error={props.errors.radioGroup}
-                          touched={props.touched.radioGroup}
-                        >
-                          <Field
-                            component={RadioField}
-                            name="radioGroup"
-                            id="radioOption1"
-                            label="option 1"
-                          />
-                          <Field
-                            component={RadioField}
-                            name="radioGroup"
-                            id="radioOption2"
-                            label="option 2"
-                          />
-                        </RadioFieldGroup>
+                        <Field
+                          component={RadioField}
+                          name="radioGroup"
+                          id="radioOption1"
+                          label="option 1"
+                        />
+                        <Field
+                          component={RadioField}
+                          name="radioGroup"
+                          id="radioOption2"
+                          label="option 2"
+                        />
                       </div>
 
                       <div className='form-group'>
@@ -118,7 +119,7 @@ class UserEdit extends Component {
                         className='btn btn-primary'
                         disabled={props.isSubmitting || !props.isValid}
                       >
-                        Submit
+                        <FormattedMessage id="userEdit.form.submitBtn" />
                       </button>
                     </Form>
                 )}}
