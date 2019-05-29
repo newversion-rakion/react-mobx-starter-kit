@@ -119,7 +119,7 @@ class UserEdit extends Component {
                         className='btn btn-primary'
                         disabled={props.isSubmitting || !props.isValid}
                       >
-                        <FormattedMessage id="userEdit.form.submitBtn" />
+                        <FormattedMessage id="userEditPage.form.submitBtn" />
                       </button>
                     </Form>
                 )}}
