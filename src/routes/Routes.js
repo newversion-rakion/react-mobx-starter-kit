@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router-dom"
 import PrivateRoute from "./PrivateRoute"
 import { BASENAME } from "utils/constants"
 
-const LandingPage  = lazy(() => import("pages/LandingPage"))
+const DashBoard  = lazy(() => import("pages/DashBoard"))
 const Login  = lazy(() => import("pages/Login"))
 const UserManagement  = lazy(() => import("pages/UserManagement"))
 const UserHomePage = lazy(() => import("pages/UserHomePage"))
@@ -19,9 +19,9 @@ const Routes = () => (
       <PrivateRoute path={`${BASENAME}/user-management`} component={UserManagement} exact />
       <PrivateRoute path={`${BASENAME}/user-management/:id`} component={UserHomePage} exact />
       <PrivateRoute path={`${BASENAME}/user-management/:id/edit`} component={UserEdit} exact />
+      <PrivateRoute component={DashBoard} />
       <Route path={`${BASENAME}/something-went-wrong`} component={SomethingWentWrong} exact />
       <Route path={`${BASENAME}/page-not-found`} component={PageNotFound} exact />
-      <Route component={LandingPage} />
     </Switch>
   </Suspense>
 )

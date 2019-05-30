@@ -1,7 +1,7 @@
 import { observable } from "mobx"
 
-class LandingPageStore {
+class DashBoardStore {
   @observable number = 1
 }
 
-export default new LandingPageStore()
+export default new DashBoardStore()
