@@ -1,7 +1,7 @@
-import React from 'react'
-import { Field } from 'formik'
+import React from "react"
+import { Field } from "formik"
 
-import classes from './CheckboxField.module.scss'
+import classes from "./CheckboxField.module.scss"
 
 const CheckboxField = (props) => {
   return (

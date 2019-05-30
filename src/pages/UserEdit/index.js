@@ -1,3 +1,3 @@
-import UserEdit from './UserEdit'
+import UserEdit from "./UserEdit"
 
 export default UserEdit

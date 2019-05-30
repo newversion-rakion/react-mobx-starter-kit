@@ -1,5 +1,5 @@
-import React from 'react'
-import classes from './Notification.module.scss'
+import React from "react"
+import classes from "./Notification.module.scss"
 
 const Notification = ({ notification }) =>
   <div className={classes.notificationBox}>

@@ -5,7 +5,7 @@ import { observer } from "mobx-react"
 
 import addLocale, { messages } from 'translations'
 import history, { navigateTo } from "utils/routing"
-import Routes from "routes"
+import { Routes } from "routes"
 import LanguageStore from "stores/LanguageStore"
 import CoreLayout from "layouts/CoreLayout"
 

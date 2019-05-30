@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import React, { Component } from "react"
+import { observer } from "mobx-react"
 
-import UserList from './components/UserList'
-import classes from './UserManagement.module.scss'
+import UserList from "./components/UserList"
+import classes from "./UserManagement.module.scss"
 
-import UserManagementStore from './UserManagementStore'
+import UserManagementStore from "./UserManagementStore"
 
 @observer
 class UserManagement extends Component {
@@ -19,7 +19,7 @@ class UserManagement extends Component {
     const { userList, totalUsers, totalPages } = UserManagementStore
     return(
       <div className={classes.userManagementPage}>
-        <div className='container'>
+        <div className="container">
           <UserList
             userList={userList}
             totalUsers={totalUsers}

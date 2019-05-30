@@ -1,22 +1,24 @@
-import React, { lazy, Suspense } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { lazy, Suspense } from "react"
+import { Route, Switch } from "react-router-dom"
 
-import { BASENAME } from 'utils/constants'
-const LandingPage  = lazy(() => import('pages/LandingPage'))
-const Login  = lazy(() => import('pages/Login'))
-const UserManagement  = lazy(() => import('pages/UserManagement'))
-const UserHomePage = lazy(() => import('pages/UserHomePage'))
-const UserEdit = lazy(() => import('pages/UserEdit'))
-const PageNotFound = lazy(() => import('pages/PageNotFound'))
-const SomethingWentWrong = lazy(() => import('pages/SomethingWentWrong'))
+import PrivateRoute from "./PrivateRoute"
+import { BASENAME } from "utils/constants"
+
+const LandingPage  = lazy(() => import("pages/LandingPage"))
+const Login  = lazy(() => import("pages/Login"))
+const UserManagement  = lazy(() => import("pages/UserManagement"))
+const UserHomePage = lazy(() => import("pages/UserHomePage"))
+const UserEdit = lazy(() => import("pages/UserEdit"))
+const PageNotFound = lazy(() => import("pages/PageNotFound"))
+const SomethingWentWrong = lazy(() => import("pages/SomethingWentWrong"))
 
 const Routes = () => (
-  <Suspense fallback={<div className='container'>Loading...</div>}>
+  <Suspense fallback={<div className="container">Loading...</div>}>
     <Switch>
       <Route path={`${BASENAME}/login`} component={Login} exact />
-      <Route path={`${BASENAME}/user-management`} component={UserManagement} exact />
-      <Route path={`${BASENAME}/user-management/:id`} component={UserHomePage} exact />
-      <Route path={`${BASENAME}/user-management/:id/edit`} component={UserEdit} exact />
+      <PrivateRoute path={`${BASENAME}/user-management`} component={UserManagement} exact />
+      <PrivateRoute path={`${BASENAME}/user-management/:id`} component={UserHomePage} exact />
+      <PrivateRoute path={`${BASENAME}/user-management/:id/edit`} component={UserEdit} exact />
       <Route path={`${BASENAME}/something-went-wrong`} component={SomethingWentWrong} exact />
       <Route path={`${BASENAME}/page-not-found`} component={PageNotFound} exact />
       <Route component={LandingPage} />

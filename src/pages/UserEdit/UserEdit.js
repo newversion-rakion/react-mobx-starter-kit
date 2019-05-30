@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+import React, { Component } from "react"
+import { observer } from "mobx-react"
 import { FormattedMessage } from "react-intl"
 
-import { Formik, Field, Form, ErrorMessage } from 'formik'
-import { UserEditForm as validate } from 'form/validators'
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import { UserEditForm as validate } from "form/validators"
 import {
   InputTextField,
   SelectField,
   RadioField,
   CheckboxField,
   ErrorField
-} from 'form/components'
-import classes from './UserEdit.module.scss'
+} from "form/components"
+import classes from "./UserEdit.module.scss"
 
-import EditUserStore from './UserEditStore'
+import EditUserStore from "./UserEditStore"
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -35,9 +35,9 @@ class UserEdit extends Component {
     const { userInfo, editUserInfo } = this.EditUserStore
     return(
       <div className={classes.userEditPage}>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-md-4'>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
               <Formik
                 enableReinitialize
                 initialValues={userInfo}
@@ -51,45 +51,45 @@ class UserEdit extends Component {
                   console.log(props)
                   return(
                     <Form>
-                      <div className='form-group'>
+                      <div className="form-group">
                         <Field
-                          className='form-control'
-                          label='First_name'
+                          className="form-control"
+                          label="First_name"
                           component={InputTextField}
-                          type='text'
-                          name='first_name' />
-                        <ErrorMessage name='first_name' component={ErrorField} />
+                          type="text"
+                          name="first_name" />
+                        <ErrorMessage name="first_name" component={ErrorField} />
                       </div>
 
-                      <div className='form-group'>
+                      <div className="form-group">
                         <Field
-                          className='form-control'
-                          label='Last_name'
+                          className="form-control"
+                          label="Last_name"
                           component={InputTextField}
-                          type='text'
-                          name='last_name' />
-                        <ErrorMessage name='last_name' component={ErrorField} />
+                          type="text"
+                          name="last_name" />
+                        <ErrorMessage name="last_name" component={ErrorField} />
                       </div>
 
-                      <div className='form-group'>
+                      <div className="form-group">
                         <Field
-                          label='Test select'
-                          placeholder='Select one...'
+                          label="Test select"
+                          placeholder="Select one..."
                           options={options}
                           component={SelectField}
-                          type='text'
-                          name='foods' />
-                        <ErrorMessage name='foods' component={ErrorField} />
+                          type="text"
+                          name="foods" />
+                        <ErrorMessage name="foods" component={ErrorField} />
                       </div>
 
                       <div className="form-group">
                         <CheckboxField name="checkboxGroup" value="1" label="hihi" />
                         <CheckboxField name="checkboxGroup" value="2" label="ahihi" />
                         <CheckboxField name="checkboxGroup" value="3" label="ưhihi"/>
-                        <ErrorMessage name='checkboxGroup' component={ErrorField} />
+                        <ErrorMessage name="checkboxGroup" component={ErrorField} />
                       </div>
 
-                      <div className='form-group'>
+                      <div className="form-group">
                         <Field
                           component={RadioField}
                           name="radioGroup"
@@ -104,19 +104,19 @@ class UserEdit extends Component {
                         />
                       </div>
 
-                      <div className='form-group'>
+                      <div className="form-group">
                         <Field
-                          className='form-control'
-                          label='Email'
+                          className="form-control"
+                          label="Email"
                           component={InputTextField}
-                          type='text'
-                          name='email' />
-                        <ErrorMessage name='email' component={ErrorField} />
+                          type="text"
+                          name="email" />
+                        <ErrorMessage name="email" component={ErrorField} />
                       </div>
 
                       <button
-                        type='submit'
-                        className='btn btn-primary'
+                        type="submit"
+                        className="btn btn-primary"
                         disabled={props.isSubmitting || !props.isValid}
                       >
                         <FormattedMessage id="userEditPage.form.submitBtn" />

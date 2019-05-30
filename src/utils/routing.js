@@ -1,5 +1,5 @@
-import { createBrowserHistory } from 'history'
-import { BASENAME } from './constants'
+import { createBrowserHistory } from "history"
+import { BASENAME } from "./constants"
 
 const history = createBrowserHistory()
 

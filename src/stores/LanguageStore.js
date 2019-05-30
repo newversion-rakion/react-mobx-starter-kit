@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 
 class LanguageStore {
-  @observable locale = localStorage.getItem('locale') || 'vi'
+  @observable locale = localStorage.getItem('locale') || 'en'
 
   @action changeLocale = locale => {
     localStorage.setItem('locale', locale)

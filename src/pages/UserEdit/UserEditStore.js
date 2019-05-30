@@ -1,6 +1,6 @@
-import { observable } from 'mobx'
-import * as Api from 'utils/api'
-import { navigateTo } from 'utils/routing'
+import { observable } from "mobx"
+import * as Api from "utils/api"
+import { navigateTo } from "utils/routing"
 
 class UserEditStore {
   @observable userInfo = {}

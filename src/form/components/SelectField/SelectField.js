@@ -1,7 +1,7 @@
-import React from 'react'
-import Select from 'react-select'
+import React from "react"
+import Select from "react-select"
 
-import classes from './SelectField.module.scss'
+import classes from "./SelectField.module.scss"
 
 const SelectField = ({
   form: {
@@ -22,17 +22,17 @@ const SelectField = ({
     <div className={classes.selectFieldWrap}>
       <button
         type="button"
-        onClick={() => setFieldValue(field.name, '')}
+        onClick={() => setFieldValue(field.name, "")}
         className={classes.removeValueBtn}
       >
         x
       </button>
       <Select
-        value={(options && field.value) ? options.find(option => option.value === field.value) : ''}
+        value={(options && field.value) ? options.find(option => option.value === field.value) : ""}
         onChange={(selectedOption) => setFieldValue(field.name, selectedOption.value)}
         options={options}
         onBlur={() => setFieldTouched(field.name)}
-        className={errors[field.name] && touched[field.name] ? classes.hasError : ''}
+        className={errors[field.name] && touched[field.name] ? classes.hasError : ""}
         {...props}
       />
     </div>

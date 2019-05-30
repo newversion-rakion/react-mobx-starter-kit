@@ -1,7 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from "react"
+import classNames from "classnames"
 
-import classes from './RadioField.module.scss'
+import classes from "./RadioField.module.scss"
 
 const RadioField = ({
   field: { name, value, onChange, onBlur },

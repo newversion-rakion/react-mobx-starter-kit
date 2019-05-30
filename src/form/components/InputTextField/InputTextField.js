@@ -1,7 +1,7 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from "react"
+import classNames from "classnames"
 
-import classes from './InputTextField.module.scss'
+import classes from "./InputTextField.module.scss"
 
 const InputTextField = ({
   field,
