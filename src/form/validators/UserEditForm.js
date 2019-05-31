@@ -17,10 +17,6 @@ const UserEditForm = values => {
     errors.foods = "Food cannot be blank";
   }
 
-  if (!values.radioGroup) {
-    errors.foods = "Radio group cannot be blank";
-  }
-
   if (values.checkboxGroup.length === 0) {
     errors.checkboxGroup = "Checkbox group cannot be blank";
   }

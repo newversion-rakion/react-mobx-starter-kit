@@ -42,13 +42,12 @@ class UserEdit extends Component {
                 enableReinitialize
                 initialValues={userInfo}
                 validate={validate}
-                onSubmit={(values, { setSubmitting  }) => {
+                onSubmit={(values, { setSubmitting }) => {
                   setSubmitting(false)
                   editUserInfo(userInfo.id, values)
                 }}
               >
                 {({ ...props }) => {
-                  console.log(props)
                   return(
                     <Form>
                       <div className="form-group">

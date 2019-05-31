@@ -5,6 +5,10 @@ const LoginForm = (values) => {
     errors.email = "Required";
   }
 
+  if (!values.password) {
+    errors.password = "Required";
+  }
+
   return errors
 }
 

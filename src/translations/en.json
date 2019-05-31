@@ -1,3 +1,6 @@
 {
-  "userEditPage.form.submitBtn": "Submit"
+  "userEditPage.form.submitBtn": "Submit",
+  "loginPage.form.label.email": "Email",
+  "loginPage.form.label.password": "Password",
+  "loginPage.form.label.submitBtn": "Submit"
 }

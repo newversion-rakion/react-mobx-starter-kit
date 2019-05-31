@@ -9,13 +9,13 @@ import classes from "./Navbar.module.scss"
 const Navbar = props => {
   return (
     <div className={classes.navbarContainer}>
-      <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container">
           <div className="collapse navbar-collapse" id="navbarNav">
             {(() => !!getToken() ? <AuthorizedNav {...props} /> : <UnauthorizedNav {...props} />)()}
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </div>
   )
 }
