@@ -2,5 +2,7 @@
   "userEditPage.form.submitBtn": "Gửi",
   "loginPage.form.label.email": "Email",
   "loginPage.form.label.password": "Mật khẩu",
-  "loginPage.form.label.submitBtn": "Gửi"
+  "loginPage.form.label.submitBtn": "Gửi",
+  "loginPage.form.validator.email": "Email không được để trống",
+  "loginPage.form.validator.password": "Mật khẩu không được để trống"
 }

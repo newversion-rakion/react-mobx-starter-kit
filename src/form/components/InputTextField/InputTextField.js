@@ -1,5 +1,6 @@
 import React from "react"
 import classNames from "classnames"
+import { injectIntl, FormattedMessage } from "react-intl"
 
 import classes from "./InputTextField.module.scss"
 
@@ -12,7 +13,7 @@ const InputTextField = ({
 }) => (
   <div className={classes.inputTextField}>
     {label &&
-      <label>{label}</label>
+      <label><FormattedMessage id={label} /></label>
     }
     <input
       className={
@@ -27,4 +28,4 @@ const InputTextField = ({
   </div>
 )
 
-export default InputTextField
+export default injectIntl(InputTextField)

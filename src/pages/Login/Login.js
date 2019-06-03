@@ -40,7 +40,7 @@ class Login extends Component {
                       <div className="form-group">
                         <Field
                           className="form-control"
-                          label={<FormattedMessage id="loginPage.form.label.email" />}
+                          label={"loginPage.form.label.email"}
                           component={InputTextField}
                           type="text"
                           name="email" />
@@ -50,7 +50,7 @@ class Login extends Component {
                       <div className="form-group">
                         <Field
                           className="form-control"
-                          label={<FormattedMessage id="loginPage.form.label.password" />}
+                          label={"loginPage.form.label.password"}
                           component={InputTextField}
                           type="password"
                           name="password" />

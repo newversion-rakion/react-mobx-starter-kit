@@ -1,0 +1,27 @@
+.mainHeader {
+  background: green;
+}
+
+.mainHeaderContent {
+  display: flex;
+  padding: 10px 0;
+}
+
+.headerRight {
+  margin-left: auto;
+}
+
+.userName {
+   color: #ffffff;
+   display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.dropdownIcon {
+  background: none!important;
+  border: 0!important;
+  &:focus {
+    box-shadow: none!important;
+  }
+}

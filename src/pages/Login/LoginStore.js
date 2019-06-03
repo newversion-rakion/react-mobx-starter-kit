@@ -20,6 +20,7 @@ class LoginStore {
 
       this.accessToken = result.token
       sessionStorage.setItem('accessToken', this.accessToken)
+      sessionStorage.setItem('userName', 'ahihi')
 
       navigateTo('/user-management')
     } catch(e) {

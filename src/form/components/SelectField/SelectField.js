@@ -1,5 +1,6 @@
 import React from "react"
 import Select from "react-select"
+import { injectIntl, FormattedMessage } from "react-intl"
 
 import classes from "./SelectField.module.scss"
 
@@ -17,7 +18,7 @@ const SelectField = ({
 }) => (
   <div>
     {label &&
-      <label>{label}</label>
+      <label><FormattedMessage id={label} /></label>
     }
     <div className={classes.selectFieldWrap}>
       <button
@@ -39,4 +40,4 @@ const SelectField = ({
   </div>
 )
 
-export default SelectField
+export default injectIntl(SelectField)

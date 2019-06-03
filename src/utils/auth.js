@@ -7,6 +7,7 @@ export const isAuthenticated = () => (
 
 export const handleLogout = () => {
   sessionStorage.removeItem('accessToken')
+  sessionStorage.removeItem('userName')
   navigateTo('/login')
   window.location.reload()
 }

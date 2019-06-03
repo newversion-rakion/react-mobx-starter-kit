@@ -4,6 +4,7 @@ import { observer } from "mobx-react"
 import Loading from "components/Loading"
 import Notification from "components/Notification"
 import Navbar from "components/Navbar"
+import Header from 'components/Header'
 import classes from "./CoreLayout.module.scss"
 
 import apiStore from "stores/ApiStore"
@@ -22,7 +23,8 @@ class CoreLayout extends Component {
           <Notification />
         }
 
-        <Navbar />
+        <Header />
+        {/* <Navbar /> */}
 
         <div className={classes.coreLayoutContent}>
           {children}
